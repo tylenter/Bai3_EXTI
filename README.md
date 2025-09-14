@@ -5,6 +5,7 @@ CÁC BƯỚC THỰC HIỆN:
 
 
 void GPIO_Config(void)
+
 {
     RCC->APB2ENR |= (1<<2) | (1<<3) | (1<<0);
 
@@ -14,7 +15,8 @@ void GPIO_Config(void)
 
     GPIOB->CRL &= ~(0xF << 0);   
     GPIOB->CRL |=  (0x8 << 0);   
-    GPIOB->ODR |=  (1 << 0);     
+    GPIOB->ODR |=  (1 << 0);   
+    
 }
 
 2. Cấu hình EXTIO:
@@ -24,8 +26,8 @@ void GPIO_Config(void)
 
 
 void EXTI0_Config(void)
+
 {
-    // Chọn PB0 cho EXTI0
     AFIO->EXTICR[0] &= ~(0xF << 0);
     AFIO->EXTICR[0] |=  (0x1 << 0);
 
@@ -39,6 +41,7 @@ void EXTI0_Config(void)
 
 
 void EXTI0_IRQHandler(void)
+
 {
     if(EXTI->PR & (1 << 0)) 
     {
