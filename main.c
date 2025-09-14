@@ -40,7 +40,6 @@ void GPIO_Config(void)
 
 void EXTI0_Config(void)
 {
-    // Ch?n PB0 cho EXTI0
     AFIO->EXTICR[0] &= ~(0xF << 0);
     AFIO->EXTICR[0] |=  (0x1 << 0);  
 
@@ -67,3 +66,4 @@ void delay_ms(uint16_t time)
         for(j=0; j<0x2AFF; j++);
     }
 }
+
