@@ -16,6 +16,7 @@ void GPIO_Config(void)
     GPIOB->CRL |=  (0x8 << 0);   
     GPIOB->ODR |=  (1 << 0);     
 }
+
 2. Cấu hình EXTIO:
    - Chọn PB0 làm chân ngắt ngoài EXTI0.
    - Kích hoạt ngắt cạnh Falling Edge (nhấn nút kéo xuống GND).
@@ -45,6 +46,7 @@ void EXTI0_IRQHandler(void)
         led_enable = !led_enable; 
     }
 }
+
 3. Chương trình chính:
    - Nếu led_enable = 1: LED ở PA5 sẽ nhấp nháy 1 Hz (delay_ms 1000 ms).
    - Nếu led_enable = 0: LED luôn sáng.
@@ -67,6 +69,7 @@ int main(void)
         }
     }
 }
+
 4. Kết quả:
   - LED tại PA5:
     + Mặc định nhấp nháy 1 Hz.
